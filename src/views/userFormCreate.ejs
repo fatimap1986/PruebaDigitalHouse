@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>Crear usuario</title>
+
+    <link rel="stylesheet" href="/styles.css">
+
+</head>
+<body>
+    <div class="contenedorPrincipal">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <% if (locals.errors) { %>
+            <% for( let oneError in errors) { %>
+                <p style="color: darkred;"> <%= errors[oneError].msg %></p>
+            <% } %>
+        <% } %>
+
+        <div class="registro">
+            <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Crear usuario</p>
+            <div>
+                <ul class="errores"></ul>
+            </div>
+            <form class="registerForm" method="post" action="/create" enctype="multipart/form-data">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input id="usuario" name="usuario" class="form-control" placeholder="Usuario" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user" style="opacity: 0%;"></i> </span>
+                     </div>
+                    <input id="nombre" name="nombre" class="form-control" placeholder="Nombre" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user" style="opacity: 0%;"></i> </span>
+                     </div>
+                    <input id="apellido" name="apellido" class="form-control" placeholder="Apellido" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-home"></i> </span>
+                     </div>
+                    <input id="direccion" name="direccion" class="form-control" placeholder="Dirección" type="text">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                     </div>
+                    <input id="fecha" name="fechaDeNacimiento" class="form-control" placeholder="Fecha de Nacimiento" type="date">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                     </div>
+                    <input id="email" name="email" class="form-control" placeholder="Email" type="email">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password" name="password" class="form-control" placeholder="Crear contraseña" type="password">
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-image"></i> </span>
+                    </div>
+                    <input id="imagenPerfil" class="form-control" placeholder="Seleciona una Imagen de Perfil" type="file" name="avatar">
+                </div>
+                <div class="form-group">
+
+                    <Label>Rol</Label>
+                    <select name = "rol">
+                        <option value="administrador">Administrador</option>
+                        <option value="comun">Comun</option>
+                    </select>
+
+                    <button type="submit" class="btn btn-primary btn-block"> Crear Cuenta </button>
+                </div>
+                <p class="text-center">Ya tenés cuenta?<a href="/login">Log In</a> </p>
+
+            </form>
+        </div>
+        <br>
+        <br>
+    </div>
+    <script src="/js/registerValidation.js"></script>
+</body>
+</html>

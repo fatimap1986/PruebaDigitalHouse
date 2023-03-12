@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  
+    <br>
+    <div style="text-align: center;"><h1>Usuarios en la Base de Datos</h1></div>
+    <br>
+
+    <div class="contenedorPerfil" style="display: flex; flex-wrap: wrap;">
+        
+        <% users.forEach(user=> { %>
+            <div style="margin-bottom: 1%;" class="contenedorPerfilSub">
+                <div class="contenedorNombre">
+                    <h2 class="bienvenidaUsuario"><%= user.nombre %>
+                            <%= user.apellido %>
+                    </h2>
+                </div>
+                <br>
+                <img id="imagenPerfil" src="/img/<%= user.img %>" alt="Generic placeholder image" class="img-fluid">
+                <div class="detallesPerfil">
+                    <h3>Usuario: <%= user.usuario %>
+                    </h3>
+                    <br>
+                    <h3>Direccion de Domicilio: <%= user.direccion %>
+                    </h3>
+                    <br>
+                    <h4>Fecha de Nacimiento: <%= user.fecha_nacimiento %>
+                    </h4>
+                </div>
+
+                <div class="contenedorBotonEditar">
+                    <form action="/user/edit/<%= user.id %>" method="get"><button type="submit" class="botonEdicionPerfil">Editar Datos</button></form>
+                    <form action="/user/delete/<%= user.id %>?_method=DELETE" method="POST">
+                        <button type="submit" style="background-color: red; color: white; border-radius: 1%;" class="botonEdicionPerfil">Eliminar</button></form>
+                    
+                   
+                </div>
+            </div> <% }); %>
+    </div>
+
+</body>
+
+</html>

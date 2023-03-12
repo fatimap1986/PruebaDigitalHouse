@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+
+    <header>
+        <%- include('./partials/header') %>
+    </header>
+    <div><img style="width: 100%;"  src="/images/bannerperfil.jpg" alt=""></div>
+   
+    <br>
+    
+<div class="contenedorPerfil">
+    <div class="contenedorPerfilSub">
+    <div class="contenedorNombre"><h2 class="bienvenidaUsuario">Hola <%= user.nombre %>
+        <%= user.apellido %>
+    </h2></div>
+    <br>
+    <img id="imagenPerfil" src="/img/<%= user.img %>" alt="Generic placeholder image" class="img-fluid">
+    <div class="detallesPerfil">
+    <h3>Usuario: <%= user.usuario %></h3>
+    <br>
+    <h3>Direccion de Domicilio: <%= user.direccion %></h3>
+    <br>
+    <h4>Fecha de Nacimiento: <%= user.fecha_nacimiento %></h4>
+    </div>
+    
+    <div class="contenedorBotonEditar">
+    <form action="/logout" method="post"><button type="submit" class="botonEdicionPerfil">Log out</button></form>
+    <form action="/profile/edit/<%= user.id %>" method="get"><button type="submit" class="botonEdicionPerfil">Editar Datos</button></form>
+</div>
+</div><div class="contenedorPerfilSub2"><img class="imagenMontaña" src="/images/montañasperfil.jpg" alt=""></div>
+</div>
+ 
+</body>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+</html>
